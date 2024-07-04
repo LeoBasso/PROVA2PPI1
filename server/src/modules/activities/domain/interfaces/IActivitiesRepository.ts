@@ -1,12 +1,10 @@
 import { CreateActivityDTO } from "../../domain/dtos/CreateActivity.dto";
-import { UpdateActivityDTO } from "../../domain/dtos/UpdateActivity.dto";
-import Activity from "../../typeorm/entities/Activity";
+import { IActivity } from "./IActivity";
 
 export interface IActivitiesRepository {
-  create(createActivity: CreateActivityDTO): Promise<Activity>;
-  save(activity: Activity): Promise<Activity>;
-  findAll(): Promise<Activity[]>;
-  findById(id: number): Promise<Activity | null>;
-  update(id: number, updateData: UpdateActivityDTO): Promise<Activity | null>;
-  remove(activity: Activity): Promise<void>;
+  create(createActivity: CreateActivityDTO): Promise<IActivity>;
+  save(activity: IActivity): Promise<IActivity>;
+  findAll(user_id:number): Promise<IActivity[]>;
+  findById(id: number): Promise<IActivity | null>;
+  remove(activity: IActivity): Promise<void>;
 }

@@ -14,7 +14,7 @@ const SharedLayout = () => {
           <DropDown />
         </div>
       </main>
-      <Footer />
+
     </>
   );
 };

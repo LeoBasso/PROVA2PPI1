@@ -1,12 +1,12 @@
 import Activity from "../../../components/pages/Activity";
 import CreateActivityModal from "../../../components/pages/CreateActivityModal";
-import { getAllActivities } from "../../../queries/activities/activities";
+import { useFetchActivities } from "../../../queries/activities/activities";
 
 const ActivitiesContainer = () => {
-  // Está sendo renderizado duas vezes
-  const propertys = getAllActivities();
 
-  if (propertys?.length <= 0) {
+  const activity = useFetchActivities();
+  console.log(activity);
+  if (activity?.length <= 0) {
     return (
       <div className="flex">
         <section>
@@ -34,9 +34,9 @@ const ActivitiesContainer = () => {
               <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center md:space-x-3 flex-shrink-0">
                 <CreateActivityModal />
                 <h6>
-                  {propertys?.data?.length} Propriedade
-                  {propertys?.data?.length > 1 && "s"} encontrada
-                  {propertys?.data?.length > 1 && "s"}{" "}
+                  {activity?.data?.length} Propriedade
+                  {activity?.data?.length > 1 && "s"} encontrada
+                  {activity?.data?.length > 1 && "s"}{" "}
                 </h6>
               </div>
             </div>
@@ -48,19 +48,19 @@ const ActivitiesContainer = () => {
                       <span className="sr-only">Actions</span>
                     </th>
                     <th scope="col" className="px-4 py-4">
-                      Nome
+                      Tipo
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Cidade
+                      Distância
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Estado
+                      Tempo
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Area Cultivada
+                      Média
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Area Total
+                      Data
                     </th>
                     <th scope="col" className="px-4 py-3">
                       Editar
@@ -71,8 +71,8 @@ const ActivitiesContainer = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-gray-800 text-gray-300">
-                  {propertys?.data?.map((property) => {
-                    return <Activity key={property.id} property={property} />;
+                  {activity?.data?.map((activity) => {
+                    return <Activity key={activity.id} activity={activity} />;
                   })}
                 </tbody>
               </table>

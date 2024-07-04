@@ -1,5 +1,6 @@
 import customFetch from "../../utils/axios";
 import { toast } from "react-toastify";
+import { useQuery, useMutation } from 'react-query';
 
 export const createActivity = async (activity) => {
   try {
@@ -10,14 +11,17 @@ export const createActivity = async (activity) => {
   }
 };
 
-export const getAllActivities = async () => {
+async function getActivities() {
   try {
-    const { data } = await customFetch.get("/activity");
-    return data;
+      const response = await customFetch.get('/activities');
   } catch (error) {
-    toast.error(error.response.data.msg);
+      toast.error(error.response.data.msg);
   }
-};
+}
+
+export function useFetchActivities() {
+  return useQuery(['activities'], getActivities);
+}
 
 export const deleteActivity = async (id) => {
   try {
