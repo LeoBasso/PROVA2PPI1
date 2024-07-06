@@ -13,9 +13,11 @@ export const createActivity = async (activity) => {
 
 async function getActivities() {
   try {
-      const response = await customFetch.get('/activities');
+    const response = await customFetch.get('/activities');
+    console.log(response);
+    return response.data;
   } catch (error) {
-      toast.error(error.response.data.msg);
+    toast.error(error.response.data.msg);
   }
 }
 
