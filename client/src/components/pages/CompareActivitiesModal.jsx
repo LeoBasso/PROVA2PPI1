@@ -24,8 +24,9 @@ const CompareActivitiesModal = ({ activities, onClose }) => {
   const handleCompare = () => {
     if (activities.length === 2 && activities[0].type === activities[1].type) {
       return true;
-    } else {
-      toast.error('Você deve selecionar duas atividades do mesmo tipo');
+    } 
+    else {
+      toast.error('Você deve selecionar DUAS atividades do mesmo tipo');
       return false;
     }
   };

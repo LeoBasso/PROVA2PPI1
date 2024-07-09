@@ -117,7 +117,7 @@ const ActivitiesContainer = () => {
                 </tbody>
               </table>
               <div className="flex justify-end p-4">
-                <button onClick={() => setShowDetails(!showDetails)} className="text-blue-500">
+                <button onClick={() => setShowDetails(!showDetails)} className="text-blue-100">
                   {showDetails ? "Mostrar menos" : "Mostrar mais"}
                 </button>
               </div>

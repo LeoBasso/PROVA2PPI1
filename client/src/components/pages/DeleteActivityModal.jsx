@@ -18,7 +18,8 @@ export default function DeleteActivityModal(activity) {
   async function handlerDelete() {
     setDeleteModalOpen(false);
     await deleteActivity(activity.value.id);
-
+  }
+  
     return (
       <div className="flex items-center justify-center">
         <OpenCloseModal
@@ -40,5 +41,4 @@ export default function DeleteActivityModal(activity) {
         </OpenCloseModal>
       </div>
     );
-  }
 }
