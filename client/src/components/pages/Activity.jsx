@@ -2,7 +2,7 @@ import { useState } from "react";
 import DeleteActivityModal from "./DeleteActivityModal";
 import UpdateActivityModal from "./UpdateActivityModal";
 import { Checkbox } from 'flowbite-react';
-import { FaRunning, FaBiking, FaSwimmer, FaWalking } from 'react-icons/fa'; // Exemplos de ícones
+import { FaRunning, FaBiking, FaSwimmer, FaWalking } from 'react-icons/fa';
 
 const activityIcons = {
   Corrida: FaRunning,
@@ -16,10 +16,10 @@ const Activity = ({ activity, showDetails, onSelectActivity }) => {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    onSelectActivity(activity, !isChecked); // Passa a atividade selecionada e o estado atualizado
+    onSelectActivity(activity, !isChecked);
   };
 
-  const IconComponent = activityIcons[activity.type] || FaRunning; // Default icon if type is not found
+  const IconComponent = activityIcons[activity.type];
 
   return (
     <tr className="border-b dark:border-gray-700">
@@ -27,9 +27,14 @@ const Activity = ({ activity, showDetails, onSelectActivity }) => {
         <Checkbox checked={isChecked} onChange={handleCheckboxChange} />
       </td>
       <td className="px-4 py-3">
-        <IconComponent className="mr-2" /> {activity.type}
+          <IconComponent className="mr-2 text-xl" />
       </td>
-      <td className="px-4 py-3">{activity.distance} Km</td>
+      {showDetails && (
+        <>
+          <td className="px-4 py-3">{activity.type}</td>
+        </>
+      )}
+      <td className="px-6 py-4">{activity.distance} Km</td>
       {showDetails && (
         <>
           <td className="px-4 py-3">{activity.time} min</td>
@@ -40,6 +45,7 @@ const Activity = ({ activity, showDetails, onSelectActivity }) => {
           </td>
         </>
       )}
+      
       <td className="flex-1 m-0 p-3 justify-end">
         <UpdateActivityModal value={activity} />
       </td>

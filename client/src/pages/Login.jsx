@@ -40,10 +40,10 @@ function Login() {
 
   return (
     <form
-      className="flex h-screen items-center justify-center bg-gray-800"
+      className="flex h-screen items-center justify-center bg-[#09090b]"
       onSubmit={handleSubmit(handlerLogin)}
     >
-      <div className="w-full max-w-sm p-4 bg-gray-600 border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8">
+      <div className="w-full max-w-sm p-4 bg-gray-400 border border-gray-500 rounded-lg shadow-md sm:p-6 md:p-8">
         <h5 className="text-xl font-medium text-gray-900">
           Faça login na plataforma
         </h5>
@@ -70,16 +70,16 @@ function Login() {
           <ClearButtonForm onClick={() => reset()} />
           <SubmitButton label="Login" />
         </div>
-        <div className="text-sm font-medium text-gray-300 mt-4 ">
+        {/* <div className="text-sm font-medium text-black mt-4 ">
           Não é registrado?
           <Link
-            className="text-green-500 hover:underline ml-2"
+            className="text-orange-700 hover:underline ml-2"
             onClick={() => reset()}
             to="/register"
           >
             Registre-se
           </Link>
-        </div>
+        </div> */}
       </div>
     </form>
   );

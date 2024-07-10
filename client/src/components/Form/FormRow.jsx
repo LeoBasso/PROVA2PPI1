@@ -15,11 +15,11 @@ const FormRow = ({
   disabled,
 }) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const inputClass = `bg-gray-500 border ${
+  const inputClass = `bg-[#fff7ed] border ${
     hasError ? "border-red-500" : "border-gray-300"
   } text-gray-900 text-sm rounded-lg focus:ring-primary-600 ${
     hasError ? "focus:border-red-500" : "focus:border-primary-600"
-  } block w-full p-2 placeholder-gray-100 dark:focus:ring-primary-500 dark:focus:border-primary-500 ${
+  } block w-full p-2 placeholder-gray-900 dark:focus:ring-primary-500 dark:focus:border-primary-500 ${
     disabled ? "bg-gray-700 text-gray-600" : ""
   }`;
   return (
@@ -43,11 +43,6 @@ const FormRow = ({
                   onClick={() => setIsSelectOpen(!isSelectOpen)}
                   className="absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer"
                 >
-                  {isSelectOpen ? (
-                    <HiOutlineArrowNarrowUp className="h-4 w-4 text-gray-900" />
-                  ) : (
-                    <HiOutlineArrowNarrowDown className="h-4 w-4 text-gray-900" />
-                  )}
                 </div>
                 <select
                   name={field.name}

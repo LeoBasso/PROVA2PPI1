@@ -13,15 +13,15 @@ const SidebarDashboard = () => {
   const user = getUserFromLocalStorage();
 
   return (
-    <section className="bg-black/100">
+    <section className="bg-[#1c1917]">
       <div
-        className={`bg-black min-h-screen ${
+        className={`bg-[#1c1917] min-h-screen  ${
           open ? "w-64" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+        } duration-500 text-white px-4`}
       >
         <div className="mt-4 flex flex-col gap-4 relative">
           <div className="flex flex-col items-center gap-1.5 p-2">
-            <FaUserCircle size={100} />
+          <FaUserCircle size={100} className="text-white" />
             <h2
               className={`text-center text-xl duration-500 ${
                 !open && "opacity-0 translate-x-28 overflow-hidden"
@@ -37,15 +37,15 @@ const SidebarDashboard = () => {
               {user.email}
             </h2>
           </div>
-          <hr className="border-gray-600 my-4" />
+          <hr className="border-white my-4" />
           {links?.map((menu, i) => (
             <Link
               to={menu?.path}
               key={i}
               className={`${
                 menu?.margin && "mt-5"
-              } group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-green-600 rounded-md ${
-                location.pathname === menu?.path ? "bg-green-900" : ""
+              } group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-[#fed7aa] rounded-md ${
+                location.pathname === menu?.path ? "bg-[#f97316]" : ""
               }`}
             >
               <div>{React.createElement(menu?.icon, { size: "20" })}</div>
@@ -62,13 +62,13 @@ const SidebarDashboard = () => {
               <h2
                 className={`${
                   open && "hidden"
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit`}
+                } absolute left-48 bg-gray font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit`}
               >
                 {menu?.text}
               </h2>
             </Link>
           ))}
-          <hr className="border-gray-600 my-4" />
+          <hr className="border-white my-4" />
         </div>
       </div>
     </section>

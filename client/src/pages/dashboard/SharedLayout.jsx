@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const SharedLayout = () => {
   return (
     <>
-      <main className="dashboard bg-gray-400 flex">
+      <main className="dashboard bg-[#fff7ed] flex">
         <SidebarDashboard />
         <div className="flex-1 mx-4 mt-4">
           <Outlet />

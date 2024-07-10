@@ -1,4 +1,5 @@
-import CloseModal from "../Buttons/CloseModal";
+import React from 'react';
+import CloseModal from '../Buttons/CloseModal';
 
 const OpenCloseModal = ({
   isModalOpen,
@@ -11,15 +12,14 @@ const OpenCloseModal = ({
   colorText,
   backdrop,
 }) => {
-
   return (
     <>
       <button
         onClick={openModal}
         type="button"
-        className={`relative inline-flex  items-center justify-center p-0.5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group ${
+        className={`relative inline-flex items-center justify-center p-0.5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group ${
           classStyle
-            ? "bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
+            ? "relative inline-flex items-center justify-center p-0.5  mr-2 overflow-hidden text-sm font-medium text-orange-900 rounded-lg group bg-gradient-to-br from-orange-700 to-green-300 group-hover:from-green-900 group-hover:to-green-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
             : ""
         }`}
       >
@@ -35,16 +35,16 @@ const OpenCloseModal = ({
         <div
           tabIndex="-1"
           aria-hidden="true"
-          className="flex bg-slate-800 bg-opacity-75 h-screen overflow-y-auto overflow-x-hidden fixed z-50 justify-center items-center w-screen mx-auto md:inset-0 max-h-full"
+          className="flex bg-[#1c1917] bg-opacity-75 h-screen overflow-y-auto overflow-x-hidden fixed z-50 justify-center items-center w-screen mx-auto md:inset-0 max-h-full"
         >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             <div
               className={`relative p-4  rounded-lg shadow sm:p-5 ${
-                backdrop ? "" : "bg-gray-800"
+                backdrop ? "" : "bg-[#1c1917] bg-opacity-85"
               }`}
             >
               <div
-                className={`flex justify-between items-center pb-4 mb-4 rounded-t sm:mb-5 dark:border-gray-600 ${
+                className={`flex justify-between items-center pb-4 mb-4 rounded-t sm:mb-5 dark:border-gray-900 ${
                   backdrop ? "" : "border-b"
                 }`}
               >

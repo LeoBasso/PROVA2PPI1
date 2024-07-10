@@ -5,7 +5,7 @@ const ProtectedRoute = ({ children, checkAccess }) => {
   const user = getUserFromLocalStorage();
 
   if (!user || (checkAccess && !checkAccess())) {
-    return <Navigate to="/landing" />;
+    return <Navigate to="/login" />;
   }
 
   return children;

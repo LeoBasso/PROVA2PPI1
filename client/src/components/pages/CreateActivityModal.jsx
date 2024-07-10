@@ -58,7 +58,7 @@ const CreateActivityModal = () => {
               type="select"
               name="type"
               labelText="Tipo de atividade"
-              placeholder="Ciclismo"
+              placeholder="Selecione"
               options={ActivityTypes}
               control={control}
               hasError={JSON.stringify(errors.name?.message)}
@@ -66,24 +66,24 @@ const CreateActivityModal = () => {
             <FormRow
               type="number"
               name="distance"
-              labelText="Distância em Km"
-              placeholder="10Km"
+              labelText="Distância (Km)"
+              placeholder="Distância em Km"
               control={control}
               hasError={JSON.stringify(errors.distance?.message)}
             />
             <FormRow
               type="number"
               name="time"
-              labelText="Tempo"
-              placeholder="10 min"
+              labelText="Tempo (min)"
+              placeholder="Digite o tempo"
               control={control}
               hasError={JSON.stringify(errors.time?.message)}
             />
             <FormRow
               type="number"
               name="elevation"
-              labelText="Ganho de Elevação"
-              placeholder="400m"
+              labelText="Ganho de Elevação (m)"
+              placeholder="Digite o ganho de elevação"
               control={control}
               hasError={JSON.stringify(errors.elevation?.message)}
             />

@@ -17,16 +17,16 @@ const DropDown = () => {
 
   const logout = () => {
     removeUserFromLocalStorage();
-    toast.success("Saindooooo...");
+    toast.success("Saindo");
     navigate("/login");
   };
 
   return (
-    <div className="mr-20 pr-2 relative">
+    <div className="relative mr-20 pr-2">
       <button
         id="dropdownAvatarNameButton"
         onClick={toggleDropDown}
-        className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 md:mr-0  mt-12 pr-8"
+        className="flex items-center text-sm font-medium text-orange-500 rounded-full hover:text-orange-700 md:mr-0 mt-12 pr-8"
         type="button"
       >
         <Avatar alt="User settings" img="" rounded stacked />
@@ -52,14 +52,14 @@ const DropDown = () => {
         id="dropdownAvatarName"
         className={`${
           isDropDownOpen ? "block" : "hidden"
-        } absolute z-10 bg-gray-900 divide-y divide-gray-100 rounded-lg shadow w-44 mt-2`}
+        } absolute z-10 bg-[#1c1917] divide-y divide-gray-100 rounded-lg shadow w-44 mt-2 right-0`}
       >
-        <div className="px-4 py-3 text-sm text-gray-300">
+        <div className="px-4 py-3 text-sm text-white">
           <div className="font-medium">{user.name}</div>
           <div className="truncate mt-2">{user.email}</div>
         </div>
         <ul
-          className="py-2 text-sm text-gray-300"
+          className="py-2 text-sm text-white hover:bg-[#f97316]"
           aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
         >
           <li>
@@ -68,7 +68,7 @@ const DropDown = () => {
             </a>
           </li>
         </ul>
-        <div className="py-2 text-gray-300">
+        <div className="py-2 text-sm text-white hover:bg-[#f97316]">
           <button onClick={logout}>Sair</button>
         </div>
       </div>

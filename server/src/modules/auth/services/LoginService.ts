@@ -13,8 +13,7 @@ export class LoginService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
-    private hashProvider: IHashProvider, // eslint-disable-next-line prettier/prettier
-    // eslint-disable-next-line prettier/prettier
+    private hashProvider: IHashProvider,
   ) { }
 
   public async execute(loginDTO: LoginDTO): Promise<LoginRespondeDTO> {

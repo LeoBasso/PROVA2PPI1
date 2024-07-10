@@ -5,27 +5,27 @@ import { toast } from "react-toastify";
 
 const CompareActivitiesModal = ({ activities, onClose }) => {
   const [isModalCreateOpen, setCreateModalOpen] = useState(false);
-  console.log(activities);
+
   if (activities.length !== 2) return null;
 
   const [activity1, activity2] = activities;
 
   function openCreateModal() {
     const response = handleCompare();
-    if(response){
+    if (response) {
       setCreateModalOpen(true);
     }
   }
-  console.log(isModalCreateOpen);
+
   function closeCreateModal() {
     setCreateModalOpen(false);
+    onClose();  // Chamando a função onClose para notificar o componente pai
   }
 
   const handleCompare = () => {
     if (activities.length === 2 && activities[0].type === activities[1].type) {
       return true;
-    } 
-    else {
+    } else {
       toast.error('Você deve selecionar DUAS atividades do mesmo tipo');
       return false;
     }
@@ -33,18 +33,18 @@ const CompareActivitiesModal = ({ activities, onClose }) => {
 
   return (
     <OpenCloseModal
-      isModalOpen={isModalCreateOpen} // Defina a abertura da modal com base na propriedade de estado ou propriedade que controla a abertura da modal
-      openModal={openCreateModal} // Não é necessário abrir a modal diretamente aqui
+      isModalOpen={isModalCreateOpen}
+      openModal={openCreateModal}
       closeModal={closeCreateModal}
       modalName={"Compare Activities"}
-      modalButton={"Comparar"} // Não há botão para abrir a modal diretamente
-      classStyle={true} // Classe de estilo
-      backdrop={false} // Sem fundo de modal
-      colorText={"text-gray-300"} // Cor do texto
+      modalButton={"Comparar"}
+      classStyle={true}
+      backdrop={false}
+      colorText={"text-gray-300"}
     >
       <div className="grid gap-4 mb-4 sm:grid-cols-2">
         {/* Activity 1 Details */}
-        <div className="flex flex-col border rounded-lg p-4 mb-4 bg-gray-800 text-gray-300">
+        <div className="flex flex-col border rounded-lg p-4 mb-4 bg-[#1c1917] text-gray-300">
           <h3 className="text-lg font-semibold mb-2">Activity 1</h3>
           <div className="mb-2">Type: {activity1.type}</div>
           <div className="mb-2">Distance: {activity1.distance} Km</div>
@@ -55,7 +55,7 @@ const CompareActivitiesModal = ({ activities, onClose }) => {
         </div>
 
         {/* Activity 2 Details */}
-        <div className="flex flex-col border rounded-lg p-4 mb-4 bg-gray-800 text-gray-300">
+        <div className="flex flex-col border rounded-lg p-4 mb-4 bg-[#1c1917] text-gray-300">
           <h3 className="text-lg font-semibold mb-2">Activity 2</h3>
           <div className="mb-2">Type: {activity2.type}</div>
           <div className="mb-2">Distance: {activity2.distance} Km</div>
@@ -68,7 +68,7 @@ const CompareActivitiesModal = ({ activities, onClose }) => {
 
       {/* Close Modal Button */}
       <div className="flex items-center justify-center">
-        <CloseModal onCancel={onClose} />
+        <CloseModal onCancel={closeCreateModal} />
       </div>
     </OpenCloseModal>
   );
