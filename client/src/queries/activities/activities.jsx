@@ -39,7 +39,8 @@ export const deleteActivity = async (id) => {
 
 export const updateActivity = async (id, activity) => {
   try {
-    await customFetch.patch(`/activity/${id}`, activity);
+    console.log(id);
+    await customFetch.put(`/activity/${id}`, activity);
     await queryClient.invalidateQueries('activities');
     toast.success("Atividade atualizada com sucesso!");
   } catch (error) {

@@ -10,9 +10,9 @@ import { updateActivity } from "../../queries/activities/activities";
 import { CreateActivitySchema } from "../../schemas/CreateActivitySchema";
 import { ActivityTypes } from "../../arrays/ActivityTypes";
 
-const UpdateActivityModal = (property) => {
+const UpdateActivityModal = (activity) => {
   const [isModalCreateOpen, setCreateModalOpen] = useState(false);
-
+console.log(activity);
   const {
     handleSubmit,
     control,
@@ -20,11 +20,11 @@ const UpdateActivityModal = (property) => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: property.value.name,
-      cultivated_area: property.value.cultivated_area,
-      total_area: property.value.total_area,
-      city: property.value.city,
-      state: property.value.state,
+      type: activity.value.type,
+      distance: activity.value.distance,
+      time: activity.value.time,
+      elevation: activity.value.elevation,
+      date: activity.value.date,
     },
     resolver: yupResolver(CreateActivitySchema),
   });
@@ -37,9 +37,9 @@ const UpdateActivityModal = (property) => {
     setCreateModalOpen(false);
   }
 
-  const handlerUpdate = async (propertys) => {
+  const handlerUpdate = async (activities) => {
     setCreateModalOpen(false);
-    await updateActivity(property.value.id, propertys);
+    await updateActivity(activity.value.id, activities);
   };
 
   return (

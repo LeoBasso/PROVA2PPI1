@@ -33,6 +33,7 @@ function Login() {
       addUserToLocalStorage(response.data.user);
       addTokenToLocalStorage(response.data.token);
       navigate("/");
+      window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }
