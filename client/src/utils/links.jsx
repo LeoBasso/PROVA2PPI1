@@ -2,22 +2,18 @@ import {
   FaRunning,
   FaUserAlt,
 } from 'react-icons/fa';
-import { SiGoogledocs } from 'react-icons/si';
-import { TbChartAreaLineFilled } from 'react-icons/tb';
-import { GiNotebook } from 'react-icons/gi';
-import { FaSackDollar } from 'react-icons/fa6';
 import { getUserFromLocalStorage } from './localStorage';
 
 const user = getUserFromLocalStorage();
 
 let links
-// user.role == 'admin'
-if (false) {
+
+if (user?.role == 'admin') {
   links = [
     {
       id: 1,
       text: 'Perfil',
-      path: '/editActivity',
+      path: '/profile',
       icon: FaUserAlt,
     },
     {
@@ -29,7 +25,7 @@ if (false) {
     {
       id: 3,
       text: 'Registrar usuário',
-      path: '/',
+      path: '/register',
       icon: FaRunning,
     },
   ];
@@ -38,7 +34,7 @@ if (false) {
     {
       id: 1,
       text: 'Perfil',
-      path: '/editActivity',
+      path: '/profile',
       icon: FaUserAlt,
     },
     {

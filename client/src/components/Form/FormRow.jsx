@@ -4,6 +4,7 @@ import {
   HiOutlineArrowNarrowDown,
   HiOutlineArrowNarrowUp,
 } from "react-icons/hi";
+
 const FormRow = ({
   type,
   name,
@@ -22,6 +23,7 @@ const FormRow = ({
   } block w-full p-2 placeholder-gray-900 dark:focus:ring-primary-500 dark:focus:border-primary-500 ${
     disabled ? "bg-gray-700 text-gray-600" : ""
   }`;
+
   return (
     <div>
       <div className="mb-2 block">
@@ -54,7 +56,7 @@ const FormRow = ({
                   onClick={() => setIsSelectOpen(!isSelectOpen)}
                   onBlur={() => setIsSelectOpen(false)}
                 >
-                  <option value={field.value}>{field.value}</option>
+                  <option value="">Selecione</option>
                   {options.map((option, index) => (
                     <option key={index} value={option}>
                       {option}

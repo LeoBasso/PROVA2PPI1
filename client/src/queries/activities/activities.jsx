@@ -1,10 +1,12 @@
 import customFetch from "../../utils/axios";
 import { toast } from "react-toastify";
-import { useQuery, useMutation } from 'react-query';
+import { useQuery } from 'react-query';
+import queryClient from "../../services/queryClient";
 
 export const createActivity = async (activity) => {
   try {
     await customFetch.post("/activity", activity);
+    await queryClient.invalidateQueries('activities');
     toast.success("Atividade criada com sucesso!");
   } catch (error) {
     toast.error(error.response.data.msg);
@@ -28,6 +30,7 @@ export function useFetchActivities() {
 export const deleteActivity = async (id) => {
   try {
     await customFetch.delete(`/activity/${id}`);
+    await queryClient.invalidateQueries('activities');
     toast.success("Atividade deletada com sucesso!");
   } catch (error) {
     toast.error(error.response.data.msg);
@@ -37,6 +40,7 @@ export const deleteActivity = async (id) => {
 export const updateActivity = async (id, activity) => {
   try {
     await customFetch.patch(`/activity/${id}`, activity);
+    await queryClient.invalidateQueries('activities');
     toast.success("Atividade atualizada com sucesso!");
   } catch (error) {
     toast.error(error.response.data.msg);

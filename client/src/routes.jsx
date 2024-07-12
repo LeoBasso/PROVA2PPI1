@@ -4,8 +4,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Error from "./pages/Error";
 import ProtectedRoute from "./pages/ProtectedRoute";
-import EditarAtividade from "./components/EditarAtividade";
 import ActivitiesContainer from "./pages/dashboard/activities/ActivitiesContainer";
+import Profile from "./pages/dashboard/profile/profile";
 
 export function AppRoutes() {
   return (
@@ -18,8 +18,7 @@ export function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        {/* <Route path="addActivity" element={<ActivitiesContainer />} /> */}
-        <Route path="editActivity" element={<EditarAtividade />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<ActivitiesContainer />} />
       </Route>
 

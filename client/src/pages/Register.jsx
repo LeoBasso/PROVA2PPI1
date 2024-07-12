@@ -34,7 +34,7 @@ function Register() {
     >
       <div className="w-full max-w-sm p-4 bg-gray-400 border border-gray-500 rounded-lg shadow-md sm:p-6 md:p-8">
         <h5 className="text-xl font-medium text-gray-900">
-          Se registre na plataforma
+          Registre o novo usuário na plataforma
         </h5>
         <br />
         <FormRow
@@ -68,7 +68,7 @@ function Register() {
           <ClearButtonForm onClick={() => reset()} />
           <SubmitButton label="Registrar" />
         </div>
-        <div className="text-sm font-medium text-black mt-4 ">
+        {/* <div className="text-sm font-medium text-black mt-4 ">
           Já registrado?
           <Link
             className="text-orange-700 hover:underline ml-2"
@@ -77,7 +77,7 @@ function Register() {
           >
             Faça Login
           </Link>
-        </div>
+        </div> */}
       </div>
     </form>
   );

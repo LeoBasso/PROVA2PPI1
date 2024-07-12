@@ -3,6 +3,7 @@ import { IActivitiesRepository } from '../domain/interfaces/IActivitiesRepositor
 import { ActivityResponseDTO } from '../domain/dtos/ActivityReponse.dto';
 import { UpdateActivityDTO } from '../domain/dtos/UpdateActivity.dto';
 import { BadRequestError } from 'src/shared/errors/BadRequestError';
+import { ActivityTypes } from '../domain/enums/ActivityTypes.enum';
 
 @injectable()
 export class UpdateActivityService {
@@ -24,9 +25,12 @@ export class UpdateActivityService {
       throw new BadRequestError('Activity not founded')
     }
 
+    if(activity.type != ActivityTypes.NATACAO ){
+    activity.elevation = updateActivity.elevation;
+    }
+
     activity.avg = updateActivity.avg;
     activity.distance = updateActivity.distance;
-    activity.elevation = updateActivity.elevation;
     activity.time = updateActivity.time;
 
     const response = await this.activitiesRepository.save(activity);
@@ -34,6 +38,7 @@ export class UpdateActivityService {
     return new ActivityResponseDTO(
       response.id, 
       response.type, 
+      response.elevation,
       response.distance, 
       response.time, 
       response.avg, 

@@ -36,7 +36,7 @@ export class CreateActivitiesTable1719363847200 implements MigrationInterface {
           },
           {
             name: 'date',
-            type: 'int',
+            type: 'timestamp',
           },
           {
             name: 'user_id',

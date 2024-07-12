@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createActivity } from "../../queries/activities/activities";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import FormRow from "../Form/FormRow";
 import OpenCloseModal from "../modal/OpenCloseModal";
 import ClearButtonForm from "../Buttons/ClearButtonForm";
@@ -11,10 +11,13 @@ import { ActivityTypes } from "../../arrays/ActivityTypes";
 
 const CreateActivityModal = () => {
   const [isModalCreateOpen, setCreateModalOpen] = useState(false);
+  const [selectedType, setSelectedType] = useState("");
   const {
     handleSubmit,
     control,
     reset,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -27,6 +30,15 @@ const CreateActivityModal = () => {
     resolver: yupResolver(CreateActivitySchema),
   });
 
+  const typeValue = watch("type");
+
+  useEffect(() => {
+    if (typeValue === "Natação") {
+      setValue("elevation", "");
+    }
+    setSelectedType(typeValue);
+  }, [typeValue, setValue]);
+
   function openCreateModal() {
     setCreateModalOpen(true);
   }
@@ -36,6 +48,7 @@ const CreateActivityModal = () => {
   }
 
   const handlerCreate = async (propertys) => {
+    console.log(propertys);
     setCreateModalOpen(false);
     await createActivity(propertys);
   };
@@ -61,7 +74,7 @@ const CreateActivityModal = () => {
               placeholder="Selecione"
               options={ActivityTypes}
               control={control}
-              hasError={JSON.stringify(errors.name?.message)}
+              hasError={JSON.stringify(errors.type?.message)}
             />
             <FormRow
               type="number"
@@ -86,6 +99,7 @@ const CreateActivityModal = () => {
               placeholder="Digite o ganho de elevação"
               control={control}
               hasError={JSON.stringify(errors.elevation?.message)}
+              disabled={selectedType === "Natação"}
             />
             <FormRow
               type="date"

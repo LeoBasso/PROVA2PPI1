@@ -5,7 +5,7 @@ export class CreateActivityDTO {
   readonly distance: number;
   readonly time: number;
   avg: number;
-  readonly elevation: number;
+  elevation: number;
   readonly date: Date;
   readonly user_id: number;
 }

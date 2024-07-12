@@ -20,14 +20,14 @@ const Activity = ({ activity, showDetails, onSelectActivity }) => {
   };
 
   const IconComponent = activityIcons[activity.type];
-
+  console.log(activity);
   return (
     <tr className="border-b dark:border-gray-700">
       <td className="px-4 py-3">
         <Checkbox checked={isChecked} onChange={handleCheckboxChange} />
       </td>
       <td className="px-4 py-3">
-          <IconComponent className="mr-2 text-xl" />
+        <IconComponent className="mr-2 text-xl" />
       </td>
       {showDetails && (
         <>
@@ -39,13 +39,21 @@ const Activity = ({ activity, showDetails, onSelectActivity }) => {
         <>
           <td className="px-4 py-3">{activity.time} min</td>
           <td className="px-4 py-3">{activity.avg} Km/h</td>
-          <td className="px-4 py-3">{activity.elevation} m</td>
+          {activity.type != "Natação" ? (
+            <>
+              <td className="px-4 py-3">{activity.elevation} m</td>
+            </>
+          ):(
+            <>
+              <td className="px-4 py-3 pl-8"> - </td>
+            </>
+          )}
           <td scope="row" className="px-4 py-3 font-medium whitespace-nowrap">
             {activity.date}
           </td>
         </>
       )}
-      
+
       <td className="flex-1 m-0 p-3 justify-end">
         <UpdateActivityModal value={activity} />
       </td>
