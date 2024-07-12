@@ -43,7 +43,7 @@ function Login() {
       className="flex h-screen items-center justify-center bg-[#09090b]"
       onSubmit={handleSubmit(handlerLogin)}
     >
-      <div className="w-full max-w-sm p-4 bg-gray-400 border border-gray-500 rounded-lg shadow-md sm:p-6 md:p-8">
+      <div className="w-full max-w-sm p-4 bg-gray-400 border-2 border-green-500 rounded-lg shadow-md sm:p-6 md:p-8">
         <h5 className="text-xl font-medium text-gray-900">
           Faça login na plataforma
         </h5>

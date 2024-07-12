@@ -44,7 +44,7 @@ const ProfileCard = (user) => {
                         type="text"
                         name="name"
                         labelText="Name"
-                        placeholder="Nome"
+                        placeholder="Digite seu nome"
                         control={control}
                         hasError={JSON.stringify(errors.name?.message)}
                     />
@@ -52,7 +52,7 @@ const ProfileCard = (user) => {
                         type="email"
                         name="email"
                         labelText="E-mail"
-                        placeholder="teste@texte.com.br"
+                        placeholder="Digite seu e-mail"
                         control={control}
                         hasError={JSON.stringify(errors.email?.message)}
                     />

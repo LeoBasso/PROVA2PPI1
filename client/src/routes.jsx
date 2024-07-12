@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SharedLayout from "./pages/dashboard/SharedLayout";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Register from "./pages//dashboard/register/Register";
 import Error from "./pages/Error";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import ActivitiesContainer from "./pages/dashboard/activities/ActivitiesContainer";
@@ -18,11 +18,12 @@ export function AppRoutes() {
           </ProtectedRoute>
         }
       >
+        
+        <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<ActivitiesContainer />} />
       </Route>
 
-      <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
       <Route path="*" element={<Error />} />
     </Routes>

@@ -3,7 +3,6 @@ import Activity from "../../../components/pages/Activity";
 import CreateActivityModal from "../../../components/pages/CreateActivityModal";
 import { useFetchActivities } from "../../../queries/activities/activities";
 import CompareActivitiesModal from '../../../components/pages/CompareActivitiesModal';
-import { toast } from "react-toastify";
 
 const ActivitiesContainer = () => {
   const { data, error, isLoading } = useFetchActivities();
