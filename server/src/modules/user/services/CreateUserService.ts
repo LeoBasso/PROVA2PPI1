@@ -12,8 +12,8 @@ export class CreateUserService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
-    private hashProvider: IHashProvider, // eslint-disable-next-line prettier/prettier
-    // eslint-disable-next-line prettier/prettier
+    private hashProvider: IHashProvider,
+
   ) { }
 
   public async execute(createUser: CreateUserDTO): Promise<UserRespondeDTO> {

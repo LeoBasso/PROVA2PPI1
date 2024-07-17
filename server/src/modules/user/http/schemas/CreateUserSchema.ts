@@ -1,5 +1,4 @@
 import Joi from 'joi';
-import { RoleTypes } from '../../domain/enums/RoleTypes.enum';
 
 export const CreateUserSchema = Joi.object({
   body: Joi.object({
@@ -9,5 +8,4 @@ export const CreateUserSchema = Joi.object({
       .required()
       .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
   }),
-  // role: Joi.string().valid(...Object.values(RoleTypes)).required(),
 });

@@ -19,7 +19,7 @@ const CompareActivitiesModal = ({ activities, onClose }) => {
 
   function closeCreateModal() {
     setCreateModalOpen(false);
-    onClose();  // Chamando a função onClose para notificar o componente pai
+    onClose();
   }
 
   const handleCompare = () => {
